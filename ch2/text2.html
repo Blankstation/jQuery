@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery获取元素</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="text2.css"/>
+    <script type="text/javascript" src="text2.js"></script>
+</head>
+<body>
+<div class="one" id="one">
+id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+<div class="one" id="two" title="test">
+    id为two,class为one,id为two,class为one,title为test的div
+    <div class="mini"title="other">class为mini,title为other</div>
+    <div class="mini"title="other">class为mini,title为other</div>
+</div>
+<div class="one" >
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+<div class="one" >
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+<div style="display: none" class="none">
+    style的display为"none"的div
+</div>
+<div class="hide">class为"hide"的div</div>
+<div>
+    包含input的type为"hidden"的div<input type="hidden" size="8"/>
+</div>
+<span id="mover">正在执行动画的span元素.
+</span>
+<form id="form1" action="#">
+    可用元素:<input type="text" value="可用文本框" name="add"/><br/>
+    不可用元素:<input type="text" disabled="disabled" value="不可用文本框" name="email"/><br/>
+    可用元素:<input type="text" value="可用文本框" name="che"/><br/>
+    不可用元素:<input type="text" disabled="disabled" value="不可用文本框" name="name"/><br/>
+    多选框:<br/>
+    <input type="checkbox" checked="checked" value="test1" name="newsletter">test1<br/>
+    <input type="checkbox" value="test2" name="newsletter">test2<br/>
+    <input type="checkbox"  value="test3" name="newsletter">test3<br/>
+    <input type="checkbox"  value="test4" name="newsletter">test4<br/>
+    <input type="checkbox"  value="test5" name="newsletter">test5<br/>
+    <div id="div1"></div>
+    <br/><br/>
+    下拉列表1:<br/>
+    <select name="test" multiple="multiple" style="height: 100px">
+        <option>浙江</option>
+        <option selected="selected">湖南</option>
+        <option>北京</option>
+        <option selected="selected">天津</option>
+        <option>广州</option>
+        <option>湖北</option>
+    </select><br/>
+    下拉列表2:<br/>
+    <select>
+        <option>浙江</option>
+        <option>湖南</option>
+        <option selected="selected">北京</option>
+        <option>天津</option>
+        <option>广州</option>
+        <option>湖北</option>
+    </select>
+    <div id="div2"></div>
+</form>
+
+</body>
+</html>

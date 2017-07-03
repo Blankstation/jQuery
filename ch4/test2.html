@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <style type="text/css">
+        .over{
+            color: #88ffcc;
+        }
+        #ani{
+            position:relative;
+            width: 100px;
+            height: 100px;
+            border:1px solid black;
+            background:#9D9A9A;
+        }
+        </style>
+    <script type="text/javascript">
+        $(function () {
+            /* $("#btn").bind("myClick",function (event,message1,message2) {
+                $("#test").append("<p>"+message1+message2+"</p>");
+            });
+            $("#btn").trigger("myClick",["点击","点击"]);*/
+            $("div").bind("click",function () {
+                $("body").append("<p>click事件</p>");
+            });
+            $("div").bind("click.plugin",function () {
+                $("body").append("<p>click.plugin事件</p>");
+            });
+            $("button").click(function () {
+                $("div").trigger("click!");
+            });
+            $("a").mousedown(function (e) {
+                alert(e.which);
+            });
+            $("div").bind("mouseover mouseout",function () {
+                $("div").toggleClass("over");
+            });
+            $("#panel h5.head").toggle(function () {
+                $(this).next().hide();
+            },function () {
+                $(this).next().show();
+            });
+            $("#ani").css("opacity","0.5");
+            $("#ani").click(function () {
+                $(this).animate({left: "400px", height:"200px" ,opacity: "1"}, 3000)
+                    .animate({top:"200px",width:"200px"},3000,function () {
+                        $(this).css("border","5px solid blue");
+                    });
+                    // .fadeOut("slow");
+            });
+            $("#ani").hover(function () {
+                $(this).stop(true).animate({left: "400px", height:"200px" ,opacity: "1"}, 3000)
+                    .animate({top:"200px",width:"200px"},3000);
+            },function () {
+                $(this).stop(true).animate({width:"100px"},3000)
+                    .animate({height:"100px"},3000);
+            });
+        });
+        </script>
+</head>
+<body>
+<!--<button id="btn">点击</button>
+<div id="test"></div>-->
+<button >点点击</button>
+<div >test</div>
+<a href="#">which</a>
+<div id="panel">
+    <h5 class="head">显示隐藏</h5>
+    <p>显示隐藏显示隐藏显示隐藏显示隐藏显示隐藏显示隐藏</p>
+</div>
+<!--fadeIn()fadeOut()slideUp()slideDown()-->
+<div id="ani">
+</div>
+</body>
+</html>

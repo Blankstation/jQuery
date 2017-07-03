@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <style>
+        .tab{
+            width: 450px;
+            height: 300px;
+            border:2px solid #000;
+        }
+        .tab_menu{
+            clear: both;
+        }
+        .tab_menu li{
+            display: inline;
+            float: left;
+            list-style: none;
+            padding: 2px;
+            margin: 3px;
+            cursor: pointer;
+        }
+        .tab_menu li.selected{
+            background: #2B93D2;
+        }
+        .tab_menu li.hover {
+            background:#DFDFDF;
+        }
+        .tab_box{
+            clear: both;
+            width: 400px;
+            height: 230px;
+            border:1px solid #000;
+            position: relative;
+            left: 20px;
+            right:20px;
+        }
+        .tab_box li{
+            list-style: none;
+        }
+         .hide{
+            display: none;
+        }
+        </style>
+    <script>
+        $(function () {
+            var $div_li =$("div.tab_menu ul li");
+            $div_li.click(function(){
+                $(this).addClass("selected")
+                    .siblings().removeClass("selected");
+                var index=$div_li.index(this);
+                $('.tab_box ul li').eq(index).show()
+                    .siblings().hide() ;
+            });
+        });
+        </script>
+</head>
+<body>
+<div class="tab">
+<div class="tab_menu">
+    <ul>
+        <li class="selected">时事</li>
+        <li>新闻</li>
+        <li>娱乐</li>
+    </ul>
+</div>
+<div class="tab_box">
+<ul>
+    <li >时事</li>
+    <li class="hide">新闻</li>
+    <li class="hide">娱乐</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

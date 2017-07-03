@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <link rel="stylesheet" type="text/css" href="text2.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul class="menu">
+        <li class="level1">
+            <a href="#none">衬衫</a>
+            <ul class="level2">
+                <li><a href="#none">短袖衬衫</a></li>
+                <li><a href="#none">长袖衬衫</a></li>
+                <li><a href="#none">短袖T恤</a></li>
+                <li><a href="#none">长袖T恤</a></li>
+            </ul>
+        </li>
+        <li class="level1">
+            <a href="#none">卫衣</a>
+            <ul class="level2">
+                <li><a href="#none">短袖卫衣</a></li>
+                <li><a href="#none">长袖卫衣</a></li>
+                <li><a href="#none">运动卫衣</a></li>
+                <li><a href="#none">连帽卫衣</a></li>
+            </ul>
+        </li>
+        <li class="level1">
+            <a href="#none">裤子</a>
+            <ul class="level2">
+                <li><a href="#none">牛仔短裤</a></li>
+                <li><a href="#none">牛仔短裤</a></li>
+                <li><a href="#none">运动长裤</a></li>
+                <li><a href="#none">运动短裤</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(".level1>a").click(function () {
+        $(this).addClass("current")
+            .next().show()
+            .parent().siblings().children("a").removeClass("current")
+            .next().hide();
+        return false;
+    });
+    </script>
+<!-- jQuery   DOM-->
+<input type="checkbox" id="cr"><label for="cr">我已经阅读了上面的制度</label>
+<!--方法一-->
+<!--<script type="text/javascript">
+   $(document).ready(function () {
+       var $cr=$("#cr");
+       var cr=$cr[0];
+       $cr.click(function () {
+          if(cr.checked){
+              alert("允许执行下一步操作");
+          }
+       });
+   });
+</script>-->
+<!--方法二-->
+<script type="text/javascript">
+    $(function () {
+        var $cr=$("#cr");
+        $cr.click(function () {
+           if($cr.is(":checked")){
+               alert("感谢支持，允许执行下一步操作");
+           }
+        });
+    });
+    </script>
+</body>
+</html>

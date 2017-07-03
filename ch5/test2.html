@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script>
+        $(function () {
+            $('.required').each(function () {
+                var $required=$("<strong>*</strong>");
+                $(this).parent().append($required);
+            });
+           $('form :input').blur(function () {
+               var $parent=$(this).parent();
+               $parent.find('.formtips').remove();
+               if( $(this).is('#username') ){
+                   if( this.value=="" || this.value.length	< 6	){
+                       var errorMsg='请至少输入6位的用户名';
+                       $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                   }else{
+                       var okMsg =	'输入正确.';
+                       $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                   }
+               }
+                   if($(this).is('#email')){
+                       if(this.value==""||(this.value!=''&&!/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))){
+                           var errorMsg='请输入正确邮箱地址';
+                           $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                       }else{
+                       var okMsg =	'输入正确.';
+                       $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                   }
+               }
+               $('#send').click(function () {
+                   var send=find('.onError').length;
+                   if(send){
+                       return false;
+                   }
+                   alert('注册成功，密码已发到你的邮箱，请注意查收');
+               });
+           }).keyup(function () {
+               $(this).triggerHandler('blur');
+           }).focus(function () {
+               $(this).triggerHandler('blur');
+           });
+        });
+        </script>
+</head>
+<body>
+<form action="" method="post">
+<fieldset>
+    <legend>表单验证</legend>
+    <div>
+    <label for="username"> 用户名:</label>
+   <input type="text" id="username"class="required"/>
+    </div>
+    <div>
+    <label for="email">邮箱:</label>
+    <input type="text" id="email" class="required"/>
+    </div>
+    <div>
+    <label for="message">个人资料:</label>
+    <input type="text" id="message"/>
+    </div>
+    <div>
+    <input type="submit" id="send" value="提交">
+    <input type="reset" id="rest" value="重置">
+    </div>
+</fieldset>
+</form>
+</body>
+</html>

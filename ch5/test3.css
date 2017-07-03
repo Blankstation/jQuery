@@ -1,0 +1,26 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+table{
+    margin:3px;
+    padding: 3px;
+    border:0px;
+    border-collapse:collapse;
+    border:3px solid #000000;
+}
+th{
+    border-bottom: 3px solid #000000;
+}
+.even{
+    background:#88ffcc;
+}
+.odd{
+    background:#75b86b;
+}
+.selected{
+    background: #2B93D2;
+}
+.select{
+    background: #2B93D2;
+}

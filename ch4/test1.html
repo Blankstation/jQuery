@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toggle使用</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <style type="text/css">
+        .highlight{
+            background: #88ffcc;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+           $("#panel h5.head").toggle(function () {
+               $(this).addClass("highlight");
+               $(this).next().show();
+           },function () {
+               $(this).removeClass("highlight");
+               $(this).next().hide();
+           });
+        });
+        </script>
+</head>
+<body>
+<div id="panel">
+    <h5 class="head">什么是jQuery?</h5>
+    <div class="content">
+        jQuery是是是是jQuery是是是是jQuery是是是是jQuery是是是是
+        jQuery是是是是jQuery是是是是jQuery是是是是jQuery是是是是
+    </div>
+</div>
+</body>
+</html>

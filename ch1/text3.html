@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解决冲突</title>
+    <!--先导入property库-->
+    <!--导入property库-->
+    <!--<script type="text/javascript" src="../lib/prototype.js"></script>-->
+    <!--导入jQuery库-->
+    <!--<script type="text/javascript" src="../scripts/jquery.js"></script>-->
+    <!--先导入jQuery库-->
+    <!--导入jQuery库-->
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <!--导入property库-->
+    <script type="text/javascript" src="../lib/prototype.js"></script>
+</head>
+<body>
+<p id="pp">property将被隐藏</p>
+<p>jQuery事件</p>
+<!--先导入property库-->
+<!--first-->
+<!--<script language="JavaScript">
+jQuery.noConflict();
+jQuery(function () {
+   jQuery("p").click(function () {
+       alert(jQuery(this).text());
+   })
+});
+$("pp").style.display='none';
+    </script>-->
+<!--second-->
+<!--<script language="JavaScript">
+    jQuery.noConflict();
+    jQuery(function($){
+        $("p").click(function () {
+            alert($(this).text());
+        });
+    });
+    $("pp").style.display='none';
+</script>-->
+<!--third-->
+<!--<script language="JavaScript">
+    (function ($) {
+        $(function () {
+            $("p").click(function () {
+                alert($(this).text());
+            });
+        });
+    })(jQuery);
+    $("pp").style.display='none';
+    </script>-->
+<!--先导入jQuery库-->
+<script language="JavaScript">
+    jQuery(function () {
+       jQuery("p").click(function () {
+           alert(jQuery(this).text());
+       }) ;
+    });
+    $("pp").style.display='none';
+    </script>
+</body>
+</html>

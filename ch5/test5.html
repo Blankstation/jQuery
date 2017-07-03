@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面缩放</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <style>
+        .bigger{
+            background: #FF00CC;
+        }
+        .smaller{
+            background: #88ffcc;
+        }
+        #message{
+            width: 300px;
+        }
+        #para{
+            font-size: 15px;
+        }
+        </style>
+    <script>
+        $(function(){
+            $('span').click(function () {
+                var size=$('#para').css('font-size');
+                var unit=size.slice(-2);
+                var num=parseInt(size,10);
+                var name=$(this).attr('class');
+                if(name=='bigger') {
+                    if (num <= 200) {
+                        num += 10;
+                    }
+                }
+                if (name == 'smaller') {
+                    if (num >= 10) {
+                        num -= 10;
+                    }
+                }
+                $('#para').css('font-size',num+unit);
+            });
+            });
+        </script>
+</head>
+<body>
+<div id="caption">
+    <span class="bigger">放大</span>
+    <span class="smaller">缩小</span>
+</div>
+<div id="message">
+    <p id="para">
+        This is a  This This is a is a This is a This is a This is a This is a This is a
+        This is a This is a This is a This is a This is a This is a This is a This is a
+        This is a  This is a This is a This is a This is a This is a This is a This is a
+        This is a This is a This is a This is a This is a This is a This is a This is a
+    </p>
+</div>
+</body>
+</html>

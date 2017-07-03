@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中的DOM</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+</head>
+<body>
+<p title="选择你喜欢的水果。">你最喜欢的水果是?</p>
+<ul type="circle">
+    <li title="苹果">苹果</li>
+    <li title="橘子">橘子</li>
+    <li title="菠萝">菠萝</li>
+</ul>
+<input type="text" value="请输入" id="address">
+<script language="JavaScript">
+    $(document).ready(function () {
+        var t=$("ul li:eq(1)").text();
+        var m=$("ul li").eq(2).text();
+       // alert(t);
+        //alert(m);
+        <!--获取属性-->
+        var a=$("p").attr("title");
+       // alert(a);
+        <!--插入节点-->
+        var $li_1=$("<li title='香蕉'>香蕉</li>");
+        var $li_2=$("<li title='雪梨'>雪梨</li>");
+        var $li_3=$("<li title='其他'>其他</li>");
+        //$("ul").append($li_1);
+        //$("ul").append($li_2);
+        $("ul").prepend($li_2);
+        $("ul li:eq(1)").after($li_3);
+        $("ul").append($li_1);
+        //remove
+        $("ul li:eq(1)").remove();
+       // $("ul li").remove("li[title!='菠萝']");
+        //detach
+        /*$("ul li").click(function () {
+            alert($(this).html());
+        });
+        $("ul li:eq(0)").detach();
+        $($li_3).before($li_2);
+        //empty
+        $("ul li:eq(1)").empty();*/
+        //复制节点
+        $("ul li").click(function () {
+            //$(this).clone().appendTo("ul");
+            $(this).clone(true).appendTo("body");
+            });
+        //替换节点
+       // $("p").replaceWith("<strong>水果  喜欢</strong>");
+       // $("<strong>水果...喜欢</strong>"). replaceAll("p");
+        //包裹
+       // $("strong").wrap("<i></i>");
+    });
+    //删除属性
+    $("p").removeAttr("tittle");
+    //alert($("p").attr("tittle"));
+    //$("p").attr({"title":"选择你喜欢的水果。","class":"high"});
+    $("p").click(function () {
+        $(this).toggleClass("another");
+    });
+    $("#address").focus(function () {
+        var text=$(this).val();
+        /*if(text=="请输入"){
+            $(this).val("");
+        }*/
+        if(text==this.defaultValue){//defaultValue包含表单属性的初值
+            $(this).val("");
+        }
+    });
+    </script>
+<style>
+    .another{
+        color:#88ffcc;
+    }
+    </style>
+</body>
+</html>

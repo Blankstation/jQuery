@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="test3.css">
+    <script>
+        $(function(){
+            $('tbody>tr:even').addClass('even');
+            $('tbody>tr:odd').addClass('odd');
+            //$('tr:contains(赵六)').addClass('selected'); //contains选择相匹配的字符
+          $('#radio>tr').click(function () {
+                $(this).addClass('selected')
+                    .siblings().removeClass('selected')
+                    .end()
+                    .find(':radio').attr('checked',true);
+            });
+            //$('table :radio:checked').parents("tr").addClass('selected');
+            $('tbody>tr:has(:checked)').addClass('selected');
+            $('#checkbox>tr').click(function() {
+                if ($(this).hasClass('selected')) {
+                    $(this)
+                        .removeClass('selected')
+                        .find(':checkbox').attr('checked',false);
+                }else{
+                    $(this)
+                        .addClass('selected')
+                        .find(':checkbox').attr('checked',true);
+                }
+            });
+            $('tr.parent').click(function(){
+                $(this)
+                    .toggleClass('select')
+                      .siblings('.child_'+this.id).toggle();
+            }).click();
+        });
+        </script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr><th></th><th>姓名</th><th>性别</th><th>年龄</th></tr>
+    </thead>
+    <tbody id="radio">
+    <tr><td><input type="radio" name="choice"/></td><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+    <tr><td><input type="radio" name="choice"/></td><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+    <tr><td><input type="radio" name="choice"/></td><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+    <tr><td><input type="radio" name="choice" checked="checked"/></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+    <tr><td><input type="radio" name="choice"/></td><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+    <tr><td><input type="radio" name="choice"/></td><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+    </tbody>
+</table>
+<table>
+    <thead >
+    <tr><th></th><th>姓名</th><th>性别</th><th>年龄</th></tr>
+    </thead>
+    <tbody id="checkbox">
+    <tr class="parent" id="row01" ><td colspan="4">前台设计组</td></tr>
+    <tr class="child_row01"><td><input type="checkbox" name="check"/></td><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+    <tr class="child_row01"><td><input type="checkbox" name="check"/></td><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+    <tr class="parent" id="row02"><td colspan="4">前台开发组</td></tr>
+    <tr class="child_row02"><td><input type="checkbox" name="check"/></td><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+    <tr class="child_row02"><td><input type="checkbox" name="check" checked="checked"/></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+    <tr class="parent" id="row03"><td colspan="4">后台设计组</td></tr>
+    <tr class="child_row03"><td><input type="checkbox" name="check"/></td><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+    <tr class="child_row03"><td><input type="checkbox" name="check"/></td><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+    </tbody>
+</table>
+</body>
+</html>
